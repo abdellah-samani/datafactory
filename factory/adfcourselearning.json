@@ -1,0 +1,9 @@
+{
+	"name": "adfcourselearning",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "caa50713-53a2-4a50-8aef-efa62bd18a30",
+		"tenantId": "09ff9e3b-df6b-4286-a9af-febe58d12b0b"
+	}
+}

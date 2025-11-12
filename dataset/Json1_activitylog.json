@@ -1,0 +1,19 @@
+{
+	"name": "Json1_activitylog",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adfdp203data",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "json"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,18 @@
+{
+	"name": "selectedFilesTrigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 15,
+				"startTime": "2025-10-25T13:59:00",
+				"endTime": "2025-10-26T12:43:00",
+				"timeZone": "Morocco Standard Time"
+			}
+		}
+	}
+}
