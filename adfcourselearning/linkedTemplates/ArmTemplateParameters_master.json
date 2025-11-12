@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfcourselearning"
+		},
+		"FileServerappvm_password": {
+			"value": ""
+		},
+		"adfdp203data_accountKey": {
+			"value": ""
+		},
+		"appdb_connectionString": {
+			"value": ""
+		},
+		"appvm_password": {
+			"value": ""
+		},
+		"linkedserviceDL_accountKey": {
+			"value": ""
+		},
+		"synapse25000_connectionString": {
+			"value": ""
+		},
+		"FileServerappvm_properties_typeProperties_host": {
+			"value": "C:\\inetpub\\logs\\LogFiles\\W3SVC1"
+		},
+		"FileServerappvm_properties_typeProperties_userId": {
+			"value": "app-admin"
+		},
+		"adfdp203data_properties_typeProperties_url": {
+			"value": "https://adfdp203data.dfs.core.windows.net/"
+		},
+		"appvm_properties_typeProperties_host": {
+			"value": "C:\\inetpub\\logs\\LogFiles\\W3SVC1"
+		},
+		"appvm_properties_typeProperties_userId": {
+			"value": "appadmin"
+		},
+		"linked_git_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com"
+		},
+		"linkedserviceDL_properties_typeProperties_url": {
+			"value": "https://storagefactorylearning.dfs.core.windows.net/"
+		},
+		"manTrigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/bceb3a03-07a7-47d0-8345-1b010673e6f1/resourceGroups/RG-ADFCourse/providers/Microsoft.Storage/storageAccounts/storagefactorylearning"
+		},
+		"managerTrigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/bceb3a03-07a7-47d0-8345-1b010673e6f1/resourceGroups/RG-ADFCourse/providers/Microsoft.Storage/storageAccounts/storagefactorylearning"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

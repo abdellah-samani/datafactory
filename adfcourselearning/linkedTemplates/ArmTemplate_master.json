@@ -1,0 +1,207 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfcourselearning"
+		},
+		"FileServerappvm_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'FileServerappvm'"
+		},
+		"adfdp203data_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'adfdp203data'"
+		},
+		"appdb_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'appdb'"
+		},
+		"appvm_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'appvm'"
+		},
+		"linkedserviceDL_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'linkedserviceDL'"
+		},
+		"synapse25000_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'synapse25000'"
+		},
+		"FileServerappvm_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\inetpub\\logs\\LogFiles\\W3SVC1"
+		},
+		"FileServerappvm_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "app-admin"
+		},
+		"adfdp203data_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adfdp203data.dfs.core.windows.net/"
+		},
+		"appvm_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\inetpub\\logs\\LogFiles\\W3SVC1"
+		},
+		"appvm_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "appadmin"
+		},
+		"linked_git_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com"
+		},
+		"linkedserviceDL_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://storagefactorylearning.dfs.core.windows.net/"
+		},
+		"manTrigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/bceb3a03-07a7-47d0-8345-1b010673e6f1/resourceGroups/RG-ADFCourse/providers/Microsoft.Storage/storageAccounts/storagefactorylearning"
+		},
+		"managerTrigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/bceb3a03-07a7-47d0-8345-1b010673e6f1/resourceGroups/RG-ADFCourse/providers/Microsoft.Storage/storageAccounts/storagefactorylearning"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adfcourselearning_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"adfdp203data_accountKey": {
+						"value": "[parameters('adfdp203data_accountKey')]"
+					},
+					"appdb_connectionString": {
+						"value": "[parameters('appdb_connectionString')]"
+					},
+					"linkedserviceDL_accountKey": {
+						"value": "[parameters('linkedserviceDL_accountKey')]"
+					},
+					"synapse25000_connectionString": {
+						"value": "[parameters('synapse25000_connectionString')]"
+					},
+					"adfdp203data_properties_typeProperties_url": {
+						"value": "[parameters('adfdp203data_properties_typeProperties_url')]"
+					},
+					"linked_git_properties_typeProperties_url": {
+						"value": "[parameters('linked_git_properties_typeProperties_url')]"
+					},
+					"linkedserviceDL_properties_typeProperties_url": {
+						"value": "[parameters('linkedserviceDL_properties_typeProperties_url')]"
+					},
+					"managerTrigger_properties_typeProperties_scope": {
+						"value": "[parameters('managerTrigger_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "adfcourselearning_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfcourselearning_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "adfcourselearning_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"FileServerappvm_password": {
+						"value": "[parameters('FileServerappvm_password')]"
+					},
+					"appvm_password": {
+						"value": "[parameters('appvm_password')]"
+					},
+					"FileServerappvm_properties_typeProperties_host": {
+						"value": "[parameters('FileServerappvm_properties_typeProperties_host')]"
+					},
+					"FileServerappvm_properties_typeProperties_userId": {
+						"value": "[parameters('FileServerappvm_properties_typeProperties_userId')]"
+					},
+					"appvm_properties_typeProperties_host": {
+						"value": "[parameters('appvm_properties_typeProperties_host')]"
+					},
+					"appvm_properties_typeProperties_userId": {
+						"value": "[parameters('appvm_properties_typeProperties_userId')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfcourselearning_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "adfcourselearning_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"manTrigger_properties_typeProperties_scope": {
+						"value": "[parameters('manTrigger_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfcourselearning_ArmTemplate_2')]"
+			]
+		}
+	]
+}
