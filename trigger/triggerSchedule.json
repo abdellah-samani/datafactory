@@ -1,0 +1,24 @@
+{
+	"name": "triggerSchedule",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "10-Pipeline-Git",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 5,
+				"startTime": "2025-11-12T14:30:00",
+				"timeZone": "Morocco Standard Time"
+			}
+		}
+	}
+}
